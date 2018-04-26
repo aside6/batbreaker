@@ -1,0 +1,32 @@
+﻿<div style="float: left; width: 220px">
+    <div style="border: gray 1px solid; width: 180px; height: 240px;
+        padding: 0; margin: 0">
+        <div id="StrikeZone" style="border: green 1px solid; width: 90px; height: 120px; margin-left: 45px;
+            margin-top: 60px">
+        </div>
+    </div>
+</div>
+<div style="float: left; width: 130px">
+    B: <div id="Balls" style="display: inline"></div>&nbsp;&nbsp;S: <div id="Strikes" style="display: inline"></div>&nbsp;&nbsp;O: <div id="Outs" style="display: inline"></div>
+    <div id="Bases"></div>
+    <label id="lblPitchResult" />
+</div>
+
+<script type="text/javascript">
+
+    function ShowPitch(X, Y, Strike, InPlay, Swing) {
+        $('#StrikeZone').html('');
+        if (!InPlay) {
+            if (Strike || Swing) {
+                $('#StrikeZone').append('<div style="font-weight: bold; font-size: 10px; color: white; z-index; 100; width: 16px; height: 13px; background-image: url(/Content/images/strike.png); text-align: center; padding-top: 3px; position: relative; bottom: ' + (Y - 112) + 'px; left: ' + (X - 8) + 'px">' + 'K</div>');
+            }
+            else {
+                $('#StrikeZone').append('<div style="font-weight: bold; font-size: 10px; color: white; z-index; 100; width: 16px; height: 13px; background-image: url(/Content/images/ball.png); text-align: center; padding-top: 3px; position: relative; bottom: ' + (Y - 112) + 'px; left: ' + (X - 8) + 'px">' + 'B</div>');
+            }
+        }
+        else {
+            $('#StrikeZone').append('<div style="font-weight: bold; font-size: 10px; color: white; z-index; 100; width: 16px; height: 13px; background-image: url(/Content/images/inplay.png); text-align: center; padding-top: 3px; position: relative; bottom: ' + (Y - 112) + 'px; left: ' + (X - 8) + 'px">' + 'P</div>');
+        }
+    }
+
+</script>

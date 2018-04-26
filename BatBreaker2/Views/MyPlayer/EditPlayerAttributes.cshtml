@@ -1,0 +1,45 @@
+﻿@inherits System.Web.Mvc.WebViewPage<BatBreaker2.Models.PlayerAttribute>
+
+<h1 class="first">My Player Attributes</h1>
+    @using (Html.BeginForm()) {
+        @Html.ValidationSummary(true)
+            <div>
+            @if (ViewData["Message"] != null) {
+                <label style="color: Red">@ViewData["Message"]</label><br /><br />
+            }
+            Available Skill Points: <input type="text" readonly="text" id="txtPoints" name="txtPoints" value="@Model.Player.Points" /><br /><br />
+            @if (Model.Player.positionId == 1){
+                @Html.Partial("AttPoints", new BatBreaker2.Models.StatModels.PlayerAttribute { Amount = Model.H9, Type = "H9" })
+                @Html.Partial("AttPoints", new BatBreaker2.Models.StatModels.PlayerAttribute { Amount = Model.HR9, Type = "HR9" })
+                @Html.Partial("AttPoints", new BatBreaker2.Models.StatModels.PlayerAttribute { Amount = Model.K9, Type = "K9" })
+                @Html.Partial("AttPoints", new BatBreaker2.Models.StatModels.PlayerAttribute { Amount = Model.BB9, Type = "BB9" })
+                @Html.Partial("AttPoints", new BatBreaker2.Models.StatModels.PlayerAttribute { Amount = Model.PitchingClutch, Type = "PitchingClutch" })
+            }
+            
+            @Html.Partial("AttPoints", new BatBreaker2.Models.StatModels.PlayerAttribute { Amount = Model.Stamina, Type = "Stamina" })
+            @Html.Partial("AttPoints", new BatBreaker2.Models.StatModels.PlayerAttribute { Amount = Model.Durability, Type = "Durability" })
+            @Html.Partial("AttPoints", new BatBreaker2.Models.StatModels.PlayerAttribute { Amount = Model.ContactVsLeft, Type = "ContactVsLeft" })
+            @Html.Partial("AttPoints", new BatBreaker2.Models.StatModels.PlayerAttribute { Amount = Model.ContactVsRight, Type = "ContactVsRight" })
+            @Html.Partial("AttPoints", new BatBreaker2.Models.StatModels.PlayerAttribute { Amount = Model.PowerVsLeft, Type = "PowerVsLeft" })
+            @Html.Partial("AttPoints", new BatBreaker2.Models.StatModels.PlayerAttribute { Amount = Model.PowerVsRight, Type = "PowerVsRight" })
+            @Html.Partial("AttPoints", new BatBreaker2.Models.StatModels.PlayerAttribute { Amount = Model.PlateDiscipline, Type = "PlateDiscipline" })
+            @Html.Partial("AttPoints", new BatBreaker2.Models.StatModels.PlayerAttribute { Amount = Model.PlateVision, Type = "PlateVision" })
+            @Html.Partial("AttPoints", new BatBreaker2.Models.StatModels.PlayerAttribute { Amount = Model.BattingClutch, Type = "BattingClutch" })
+            @Html.Partial("AttPoints", new BatBreaker2.Models.StatModels.PlayerAttribute { Amount = Model.Fielding, Type = "Fielding" })
+            @Html.Partial("AttPoints", new BatBreaker2.Models.StatModels.PlayerAttribute { Amount = Model.Reaction, Type = "Reaction" })
+            @Html.Partial("AttPoints", new BatBreaker2.Models.StatModels.PlayerAttribute { Amount = Model.Speed, Type = "Speed" })
+            @Html.Partial("AttPoints", new BatBreaker2.Models.StatModels.PlayerAttribute { Amount = Model.BRAbility, Type = "BRAbility" })
+            @Html.Partial("AttPoints", new BatBreaker2.Models.StatModels.PlayerAttribute { Amount = Model.BRAgressiveness, Type = "BRAgressiveness" })
+            @Html.Partial("AttPoints", new BatBreaker2.Models.StatModels.PlayerAttribute { Amount = Model.ArmPower, Type = "ArmPower" })
+            @Html.Partial("AttPoints", new BatBreaker2.Models.StatModels.PlayerAttribute { Amount = Model.ArmAccuracy, Type = "ArmAccuracy" })
+            @Html.Partial("AttPoints", new BatBreaker2.Models.StatModels.PlayerAttribute { Amount = Model.Blocking, Type = "Blocking" })
+            @Html.Partial("AttPoints", new BatBreaker2.Models.StatModels.PlayerAttribute { Amount = Model.GameCalling, Type = "GameCalling" })
+            </div>
+            
+            <p>
+                <input type="submit" value="Save" />
+            </p>
+
+    }
+
+

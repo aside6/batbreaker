@@ -1,0 +1,147 @@
+﻿@model BatBreaker2.Models.AtBat
+
+@{
+    ViewBag.Title = "ViewPage1";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>ViewPage1</h2>
+
+    @using (Html.BeginForm()) {
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>Fields</legend>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.userId)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.userId)
+                @Html.ValidationMessageFor(model => model.userId)
+            </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.gameId)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.gameId)
+                @Html.ValidationMessageFor(model => model.gameId)
+            </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.inningId)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.inningId)
+                @Html.ValidationMessageFor(model => model.inningId)
+            </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.pitcherId)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.pitcherId)
+                @Html.ValidationMessageFor(model => model.pitcherId)
+            </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.batterId)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.batterId)
+                @Html.ValidationMessageFor(model => model.batterId)
+            </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Outs)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Outs)
+                @Html.ValidationMessageFor(model => model.Outs)
+            </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.AtFirst)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.AtFirst)
+                @Html.ValidationMessageFor(model => model.AtFirst)
+            </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.AtSecond)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.AtSecond)
+                @Html.ValidationMessageFor(model => model.AtSecond)
+            </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.AtThird)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.AtThird)
+                @Html.ValidationMessageFor(model => model.AtThird)
+            </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.resultTypeId)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.resultTypeId)
+                @Html.ValidationMessageFor(model => model.resultTypeId)
+            </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.resultId)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.resultId)
+                @Html.ValidationMessageFor(model => model.resultId)
+            </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Bases)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Bases)
+                @Html.ValidationMessageFor(model => model.Bases)
+            </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Runs)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.Runs)
+                @Html.ValidationMessageFor(model => model.Runs)
+            </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.EarnedRuns)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.EarnedRuns)
+                @Html.ValidationMessageFor(model => model.EarnedRuns)
+            </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CreateDate)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.CreateDate)
+                @Html.ValidationMessageFor(model => model.CreateDate)
+            </div>
+            
+            <p>
+                <input type="submit" value="Create" />
+            </p>
+        </fieldset>
+
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+

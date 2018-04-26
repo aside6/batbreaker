@@ -1,0 +1,58 @@
+﻿@model IEnumerable<BatBreaker2.Models.Schedule>
+<table>
+    <tr>
+        <th>
+            Teams
+        </th>
+        <th>
+            Result
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @if (item.awayTeamId == int.Parse(ViewData["teamId"].ToString()))
+                {
+                    <text> at @(item.HomeTeam.City + " " + item.HomeTeam.Title)</text>
+                }
+                else
+                {
+                    <text> vs @(item.AwayTeam.City + " " + item.AwayTeam.Title)</text>
+                }
+            </td>
+            <td>
+                @if (item.Games.FirstOrDefault() != null && item.Games.FirstOrDefault().EndDate.HasValue)
+                {
+                    if (item.awayTeamId == int.Parse(ViewData["teamId"].ToString()))
+                    {
+
+                        if (item.Games.FirstOrDefault().ScoreHome > item.Games.FirstOrDefault().ScoreAway)
+                        { <text> L @(item.Games.FirstOrDefault().ScoreHome + "-" + item.Games.FirstOrDefault().ScoreAway)</text>
+                        }
+                        else
+                        {
+                            <text> W @(item.Games.FirstOrDefault().ScoreAway + "-" + item.Games.FirstOrDefault().ScoreHome)</text>
+                        }
+                    }
+                    else
+                    {
+                        if (item.Games.FirstOrDefault().ScoreHome > item.Games.FirstOrDefault().ScoreAway)
+                        {
+                            <text> W @(item.Games.FirstOrDefault().ScoreHome + "-" + item.Games.FirstOrDefault().ScoreAway)</text>
+                        }
+                        else
+                        {
+                            <text> L @(item.Games.FirstOrDefault().ScoreAway + "-" + item.Games.FirstOrDefault().ScoreHome)</text>
+                        }
+                    }
+                }
+            </td>
+
+
+        </tr>
+    }
+</table>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>

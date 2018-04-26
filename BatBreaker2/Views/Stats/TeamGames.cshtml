@@ -1,0 +1,17 @@
+﻿@model IEnumerable<BatBreaker2.Models.Game>
+
+@{
+    ViewBag.Title = "TeamGames";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <h2>Team Games</h2>
+
+    @foreach (var item in Model) {
+    
+       <br />
+            <a href="/Stats/Game/@item.guId" target="_blank">@String.Format("{0:d}", item.StartDate)</a>
+       <br />
+            @Html.Action("BoxScore", "Game", new { gameId = item.guId })
+            
+    }

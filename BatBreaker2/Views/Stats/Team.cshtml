@@ -1,0 +1,13 @@
+﻿@model BatBreaker2.Models.Team
+
+@{
+    ViewBag.Title = "Team";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <a href="/Stats/TeamBattingStats/@Model.Id">Team Batting Stats</a><br /><br />
+    <h3>Schedule/Results</h3>
+    @Html.Action("ScheduleResults", new { id = @Model.Id })
+
+</div>

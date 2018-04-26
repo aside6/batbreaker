@@ -1,0 +1,15 @@
+﻿@model BatBreaker2.Models.GameModels.Lineups
+
+<table class="LineupTable" style="border: gray 1px solid" cellspacing="10"><tr><td style="white-space: nowrap" valign="top"><h3>Away Lineup:</h3>
+    @foreach (var item in Model.Away) {
+        <div class="Lineup" id="lblPlayer@(item.playerId)">@(item.PlayerName + " " + item.Position)
+            <div class="LineupGameStats" id="lgs@(item.playerId)">---</div>
+        </div>
+    }</td>
+    <td style="white-space: nowrap" valign="top"><h3>Home Lineup:</h3>
+    @foreach (var item in Model.Home)
+    {
+        <div class="Lineup" id="lblPlayer@(item.playerId)">@(item.PlayerName + " " + item.Position)
+            <div class="LineupGameStats" id="lgs@(item.playerId)">---</div>
+        </div>
+    }</td></tr></table>

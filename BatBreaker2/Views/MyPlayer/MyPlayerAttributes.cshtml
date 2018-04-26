@@ -1,0 +1,16 @@
+﻿@model BatBreaker2.Models.PlayerAttribute
+
+@{
+    ViewBag.Title = "MyPlayerAttributes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    @Html.Action("EditPlayerAttributes", new { id = Model.playerId })
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            CheckAttrCost();
+        });
+
+    </script>

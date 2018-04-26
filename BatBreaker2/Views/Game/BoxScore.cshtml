@@ -1,0 +1,34 @@
+﻿@model BatBreaker2.Models.Game
+
+<table border="1" cellpadding="1">
+<tr><th>Team</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>R</th><th>H</th><th>E</th></tr>
+<tr>
+<td>@Model.AwayTeam.Title</td>
+<td>@Html.Action("InningScore", new { innings = Model.Innings, Number = 1, TopOfInning = true })</td>
+<td>@Html.Action("InningScore", new { innings = Model.Innings, Number = 2, TopOfInning = true })</td>
+<td>@Html.Action("InningScore", new { innings = Model.Innings, Number = 3, TopOfInning = true })</td>
+<td>@Html.Action("InningScore", new { innings = Model.Innings, Number = 4, TopOfInning = true })</td>
+<td>@Html.Action("InningScore", new { innings = Model.Innings, Number = 5, TopOfInning = true })</td>
+<td>@Html.Action("InningScore", new { innings = Model.Innings, Number = 6, TopOfInning = true })</td>
+<td>@Html.Action("InningScore", new { innings = Model.Innings, Number = 7, TopOfInning = true })</td>
+<td>@Html.Action("InningScore", new { innings = Model.Innings, Number = 8, TopOfInning = true })</td>
+<td>@Html.Action("InningScore", new { innings = Model.Innings, Number = 9, TopOfInning = true })</td>
+<td>@ViewData["ScoreAway"]</td>
+<td>@ViewData["HitsAway"]</td>
+<td>0</td>
+</tr>
+<tr><td>@Model.HomeTeam.Title</td>
+<td>@Html.Action("InningScore", new { innings = Model.Innings, Number = 1, TopOfInning = false })</td>
+<td>@Html.Action("InningScore", new { innings = Model.Innings, Number = 2, TopOfInning = false })</td>
+<td>@Html.Action("InningScore", new { innings = Model.Innings, Number = 3, TopOfInning = false })</td>
+<td>@Html.Action("InningScore", new { innings = Model.Innings, Number = 4, TopOfInning = false })</td>
+<td>@Html.Action("InningScore", new { innings = Model.Innings, Number = 5, TopOfInning = false })</td>
+<td>@Html.Action("InningScore", new { innings = Model.Innings, Number = 6, TopOfInning = false })</td>
+<td>@Html.Action("InningScore", new { innings = Model.Innings, Number = 7, TopOfInning = false })</td>
+<td>@Html.Action("InningScore", new { innings = Model.Innings, Number = 8, TopOfInning = false })</td>
+<td>@Html.Action("InningScore", new { innings = Model.Innings, Number = 9, TopOfInning = false })</td>
+<td>@ViewData["ScoreHome"]</td>
+<td>@ViewData["HitsHome"]</td>
+<td>0</td>
+</tr>
+</table>

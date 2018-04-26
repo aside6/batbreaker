@@ -1,0 +1,186 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table style="table-layout: fixed; width: 800px; border: none" cellspacing="10">
+<tr><td style="width: 450px"><div id="BoxScore"></div></td><td rowspan="2" valign="top" style="width: 350px"><div id="Lineups"></div><br /><div id="GameViewAtBat" class="GameViewAtBat"></div><div id="GameView"></div></td></tr>
+<tr><td style="width: 450px" valign="top">
+<div id="Simulating" style="display: none; width: 200px; height: 100px; padding: 20px">Simulating.. <img src="/Content/images/ajax-loader.gif" /></div>
+<div id="MyAtBat" class="MyAtBat" style="visibility: hidden">
+<div style="color: red; font-size: 13px; font-weight: bold; text-decoration: underline">You are at bat!</div><br />
+Choose a batting style: <br />
+<select id="ddlBattingStyle" style="display: inline">
+<option value="Standard" selected="selected">Standard</option>
+<option value="ShortenUp">Shorten Up</option>
+<option value="Power">Hit for Power</option>
+<option value="TakePitch">Take a Pitch</option></select>&nbsp;&nbsp;<input type="button" value="Go!" onclick="Continue()" style="display: inline" />&nbsp<label onclick="ShowHeadsUp()">View stats</label></div>
+
+@Html.Partial("StrikeZone")</td></tr>
+</table>
+
+<label onclick="SimulateGame()" style="cursor: pointer; display: none">Simulate a game</label><br />
+<input type="hidden" id="IsUserPlayer" value="false" />
+<div id="HeadsUp" style="display: none; width: 800px; height: 600px">    
+</div>
+
+<script type="text/javascript">
+
+    var gameId;
+    var abId;
+
+    $(document).ready(function () {
+        SimulateGame();
+    });
+
+    function ShowHeadsUp() {
+        $('#HeadsUp').html('Loading...&nbsp;&nbsp;<img src="/Content/images/ajax-loader.gif" />');
+        $.ajax({
+            url: '/Stats/HeadsUpStats/' + abId,
+            success: function (data) {
+                $('#HeadsUp').html(data);
+            },
+            error: function (data) {
+                alert(data);
+            }
+        });
+        $('#HeadsUp').modal();
+    }
+
+    function Continue() {
+        ThrowPitch();
+    }
+
+    function SimulateGame() {
+        $('#lblPitches').html('');
+        NewGame();
+    }
+
+    function NewGame() {
+        $.ajax({
+            url: '/Game/New',
+            success: function (data) {
+                gameId = data;
+                GetBoxScore();
+                GetLineups();
+            },
+            error: function (data) {
+                alert(data);
+            }
+        });
+    }
+
+    function GetLineups() {
+        $.ajax({
+            url: '/Game/Lineup/' + gameId,
+            success: function (data) {
+                $('#Lineups').html(data);
+                $('.Lineup').css('font-weight', 'normal');
+                NewAb();
+            },
+            error: function (data) {
+                alert(data);
+            }
+        });
+    }
+
+    function NewAb(OnFirst, OnSecond, OnThird) {
+        $.ajax({
+            url: '/Game/' + gameId + '/NewAtBat',
+            data: 'AtFirst=' + OnFirst + '&AtSecond=' + OnSecond + '&AtThird=' + OnThird,
+            success: function (data) {
+                $('#GameViewAtBat').html('<label>At Bat:</label> ' + data.BatterName);
+                $('.Lineup').css('background-color', 'inherit');
+                $('#lblPlayer' + data.batterId).css('background-color', '#E2F5FE');
+                $('#lgs' + data.lastBatterId).html(data.BatterGameStats);
+                abId = data.Id;
+                $('#Bases').html(data.BasesImage);
+                if (data.IsUserPlayer) {
+                    $('Simulating').css('visibility', 'hidden');
+                    $('#MyAtBat').css('visibility', 'visible');
+                }
+                else {
+                    $('Simulating').css('visibility', 'visible');
+                    $('#MyAtBat').css('visibility', 'hidden');
+                    setTimeout(ThrowPitch, 2000);
+                }
+            },
+            error: function (data) {
+                alert(data);
+            }
+        });
+    }
+
+    function NewInning() {
+        $.ajax({
+            url: '/Game/' + gameId + '/NewInning',
+            success: function (data) {
+                $('#GameView').prepend('<div class=\"GameViewInning\">' + data.inningString + '</div>');
+                //$('#lblPitches').append('<br><strong>Next Inning</strong><br>');
+                NewAb();
+            },
+            error: function (data) {
+                alert(data);
+            }
+        });
+    }
+
+    function ThrowPitch() {
+        $.ajax({
+            url: '/Game/' + gameId + '/ThrowPitch/' + abId + '/' + $('#ddlBattingStyle').val() + '/Batter',
+            success: function (data) {
+                $('#lblPitchResult').html(data.Result);
+                GetBoxScore();
+                $('#Balls').html(data.Balls);
+                $('#Strikes').html(data.Strikes);
+                $('#Outs').html(data.Outs);
+                ShowPitch(data.X, data.Y, data.Strike, data.InPlay, data.Swing);
+                if (data.GameOver) {
+                    $('Simulating').css('visibility', 'visible');
+                    $('#MyAtBat').css('visibility', 'hidden');
+                    $('Simulating').html('Game Over');
+                    alert("Game Over");
+                    //window.location.href = '/Game/SimulateGame';
+                } else {
+                    if (!data.Over) {
+
+                        if (data.IsUserPlayer) {
+                            $('Simulating').css('visibility', 'hidden');
+                            $('#MyAtBat').css('visibility', 'visible');
+                        }
+                        else {
+                            $('Simulating').css('visibility', 'visible');
+                            $('#MyAtBat').css('visibility', 'hidden');
+                            setTimeout(ThrowPitch, 2000   );
+                        }
+                    }
+                    else {
+                        $('#GameView').prepend('<div class=\"GameViewItem\"><label>' + data.BatterName + '</label>' + data.AbResult + '</div>');
+                        if (data.Outs < 3) {
+                            $('#lblPitches').append('<br><br>');
+                            NewAb(data.OnFirst, data.OnSecond, data.OnThird);
+                        }
+                        else {
+                            NewInning();
+                        }
+                    }
+                }
+            },
+            error: function (data) {
+                alert(data);
+            }
+        });
+    }
+
+    function GetBoxScore() {
+        $.ajax({
+            url: '/Game/' + gameId + '/BoxScore',
+            success: function (datax) {
+                $('#BoxScore').html(datax);
+            }
+        });
+    }
+
+</script>

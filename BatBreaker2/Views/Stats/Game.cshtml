@@ -1,0 +1,11 @@
+﻿@model BatBreaker2.Models.Game
+
+@{
+    ViewBag.Title = "GetAllTeams";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Game Wrap</h2>
+
+@Html.Action("BoxScore", "Game", new { gameId = Model.guId })
+<br /><br />

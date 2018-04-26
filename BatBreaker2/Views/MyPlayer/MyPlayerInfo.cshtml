@@ -1,0 +1,11 @@
+﻿@model BatBreaker2.Models.Player
+
+@if (Model != null)
+{
+<div class="MyPlayerInfo">
+<strong>My Player:</strong> @(Model.FirstName + ' ' + @Model.LastName)<br />
+<strong>Team:</strong> @(Model.Team.City + ' ' + @Model.Team.Title)<br />
+<strong>Skill Point Balance:</strong> @Model.Points
+</div>
+}
+

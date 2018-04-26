@@ -1,0 +1,152 @@
+﻿@model BatBreaker2.Models.Player
+<table>
+    <tr><td>Name</td><td>@(Model.FirstName + ' ' + Model.LastName)</td></tr>
+    <tr><td>Team</td><td>@(Model.Team.City + ' ' + Model.Team.Title)</td></tr>
+    <tr><td>Position</td><td>Model.Position.Title</td></tr>
+    <tr><td>Bats</td><td>Model.Batting</td></tr>
+    <tr><td>Throws</td><td>Model.Throwing</td></tr>
+    <tr>
+        <td>
+            Arm Accuracy
+        </td>
+        <td>
+            Model.PlayerAttributes.First().ArmAccuracy
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Arm Strength
+        </td>
+        <td>
+            Model.PlayerAttributes.First().ArmPower
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Batting Clutch
+        </td>
+        <td>
+            Model.PlayerAttributes.First().BattingClutch
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Blocking
+        </td>
+        <td>
+            Model.PlayerAttributes.First().Blocking
+        </td>
+    </tr>
+    <tr>
+        <td>
+            BaseRunning Ability
+        </td>
+        <td>
+            Model.PlayerAttributes.First().BRAbility
+        </td>
+    </tr>
+    <tr>
+        <td>
+            BaseRunning Agressiveness
+        </td>
+        <td>
+            Model.PlayerAttributes.First().BRAgressiveness
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Contact vs Left
+        </td>
+        <td>
+            Model.PlayerAttributes.First().ContactVsLeft
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Contact vs Right
+        </td>
+        <td>
+            Model.PlayerAttributes.First().ContactVsRight
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Durability
+        </td>
+        <td>
+            Model.PlayerAttributes.First().Durability
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Fielding
+        </td>
+        <td>
+            Model.PlayerAttributes.First().Fielding
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Game Calling
+        </td>
+        <td>
+            Model.PlayerAttributes.First().GameCalling
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Plate Discipline
+        </td>
+        <td>
+            Model.PlayerAttributes.First().PlateDiscipline
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Plate Vision
+        </td>
+        <td>
+            Model.PlayerAttributes.First().PlateVision
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Power vs Left
+        </td>
+        <td>
+            Model.PlayerAttributes.First().PowerVsLeft
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Power vs Right
+        </td>
+        <td>
+            Model.PlayerAttributes.First().PowerVsRight
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Reaction
+        </td>
+        <td>
+            Model.PlayerAttributes.First().Reaction
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Speed
+        </td>
+        <td>
+            Model.PlayerAttributes.First().Speed
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Stamina
+        </td>
+        <td>
+            Model.PlayerAttributes.First().Stamina
+        </td>
+    </tr>
+</table>

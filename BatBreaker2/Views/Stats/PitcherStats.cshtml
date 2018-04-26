@@ -1,0 +1,13 @@
+﻿@model BatBreaker2.Models.StatModels.PitcherStats
+
+    <h2>Pitching Stats</h2>
+        
+        <table>
+        <tr><td>ERA</td><td>@String.Format("{0:#.00}", Model.ERA)</td></tr>
+        <tr><td>Avg Against</td><td>@String.Format("{0:.000}", Model.AvgAgainst)</td></tr>
+        <tr><td>H Against</td><td>@Model.HAgainst</td></tr>
+        <tr><td>HR Against</td><td>@Model.HRAgainst</td></tr>
+        <tr><td>K</td><td>@Model.K</td></tr>
+        <tr><td>BB</td><td>@Model.BB</td></tr>
+        <tr><td>IP</td><td>@String.Format("{0:#.#}", Model.IP)</td></tr>
+        </table>

@@ -1,0 +1,115 @@
+﻿@model IEnumerable<BatBreaker2.Models.StatModels.BatterStats>
+
+@{
+    ViewBag.Title = "AllBattingStats";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <h2>Batting Stats</h2>
+
+    <table class="sortableTable">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Team</th>
+            <th>Position</th>
+            <th>
+                Avg
+            </th>
+            <th>
+                SLG
+            </th>
+            <th>
+                OBP
+            </th>
+            <th>
+                OPS
+            </th>
+            <th>
+                ABs
+            </th>
+            <th>
+                Hits
+            </th>
+            <th>
+                Singles
+            </th>
+            <th>
+                Doubles
+            </th>
+            <th>
+                Triples
+            </th>
+            <th>
+                HR
+            </th>
+            <th>
+                K
+            </th>
+            <th>
+                BB
+            </th>
+            <th>
+                TB
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.player.FirstName @item.player.LastName
+            </td>
+            <td>@item.player.Team.City @item.player.Team.Title</td>
+            <td>@item.player.Position.Title</td>
+            <td>
+                @String.Format("{0:.000}", item.Avg)
+            </td>
+            <td>
+                @String.Format("{0:.000}", item.SLG)
+            </td>
+            <td>
+                @String.Format("{0:.000}", item.OBP)
+            </td>
+            <td>
+                @String.Format("{0:#.000}", item.OPS)
+            </td>
+            <td>
+                @item.ABs
+            </td>
+            <td>
+                @item.Hits
+            </td>
+            <td>
+                @item.Singles
+            </td>
+            <td>
+                @item.Doubles
+            </td>
+            <td>
+                @item.Triples
+            </td>
+            <td>
+                @item.HR
+            </td>
+            <td>
+                @item.K
+            </td>
+            <td>
+                @item.BB
+            </td>
+            <td>
+                @item.TB
+            </td>
+        </tr>
+    
+    }
+    </tbody>
+    </table>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.sortableTable').tablesorter();
+    });
+</script>

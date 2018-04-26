@@ -1,0 +1,64 @@
+﻿@model IEnumerable<BatBreaker2.Models.Player>
+
+@{
+    ViewBag.Title = "GetAllPlayers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <h2>All Players</h2>
+
+    <div style="overflow: auto; height: 500px; width: 300px; float: left">
+    <table>
+        <tr>
+            <th>Player Name</th>
+        </tr>
+
+    @foreach (var item in Model) {
+    
+        <tr>
+            <td>
+                <a href="javascript: GetStats(@item.Id)">@item.FirstName @item.LastName</a>
+            </td>
+        </tr>
+    
+    }
+
+    </table>
+
+    </div>
+
+
+    <div id="Stats" style="float: left; margin-left: 20px; padding: 10px; border: solid 1px gray">
+
+    </div>
+    <div id="Attributes" style="float: left; margin-left: 20px; padding 10px; border: solid 1px gray">
+
+    </div>
+
+    <div style="clear: both" />
+
+    <script type="text/javascript">
+
+        function GetStats(id) {
+            $.ajax({
+                url: '/Stats/GetPlayerStats/' + id,
+                success: function (data) {
+                    $('#Stats').html(data);
+                },
+                error: function (data) {
+                    alert(data);
+                }
+            });
+
+            $.ajax({
+                url: '/Stats/PlayerAttributes/' + id,
+                success: function (data) {
+                    $('#Attributes').html(data);
+                },
+                error: function (data) {
+                    alert(data);
+                }
+            });
+        }
+    
+    </script>

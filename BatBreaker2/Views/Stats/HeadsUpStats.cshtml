@@ -1,0 +1,19 @@
+﻿@model BatBreaker2.Models.AtBat
+
+<div style="text-align: left">
+    <h2>Pitcher</h2>
+    @(Model.Pitcher.FirstName + " " + Model.Pitcher.LastName)<br />
+    <br />
+    <div style="float: left; width: 400px">
+    @foreach(var item in Model.Pitcher.PlayerPitches) {
+        <text>@item.Pitch.Title</text><br />
+        @Html.Partial("ShowAttribute", new BatBreaker2.Models.StatModels.PlayerAttribute { Type = "Speed", Amount = item.Speed })
+        @Html.Partial("ShowAttribute", new BatBreaker2.Models.StatModels.PlayerAttribute { Type = "Control", Amount = item.Control })
+        @Html.Partial("ShowAttribute", new BatBreaker2.Models.StatModels.PlayerAttribute { Type = "Movement", Amount = item.Movement })<br />
+    }
+    </div>
+    <div style="float: left; width: 250px; margin-left: 15px">
+        @Html.Action("GetPlayerStats", new { id = Model.pitcherId })
+    </div>
+    
+</div>

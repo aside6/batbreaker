@@ -1,0 +1,8 @@
+﻿@model BatBreaker2.Models.StatModels.PlayerAttribute
+
+<div style="height: 15px; margin-top: 10px; margin-bottom: 10px; border-top: gray 1px solid; vertical-align: middle">
+<div style="float: left; width: 150px">@Model.Type</div>
+<div style="float: left; margin-left: 10px; width: 198px; height: 5px; background-color: silver; margin-top: 10px;"><div id="graph@(Model.Type)" style="width: @(Model.Amount * 2)px; height: 5px; background-color: yellow"></div></div>
+<div id="divAmount@(Model.Type)" class="AttrAmount" style="float: left; margin-left: 10px; ">@Model.Amount</div>
+<div style="clear: both"></div>
+</div>

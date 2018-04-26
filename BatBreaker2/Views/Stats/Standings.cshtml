@@ -1,0 +1,66 @@
+﻿@model IEnumerable<BatBreaker2.Models.StatModels.Standings>
+
+@{
+    ViewBag.Title = "Standings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <h2>Standings</h2>
+
+    <table cellspacing="20">
+        <tr>
+        <td width="250px">
+            Division 1
+            <table class="standings" cellspacing="4px" style="border: gray 1px solid">
+                <tr><th>Team</th><th>W</th><th>L</th><th>WPct</th></tr>
+                 @foreach (var item in Model.Where(m => m.Division == 1).OrderByDescending(m => m.WinPct)) {
+                    <tr><td><a href="/Stats/Team/@item.team.Id">@item.team.Title</a></td><td>@item.Wins</td><td>@item.Losses</td><td>@item.WinPct.ToString("#.000")</td></tr>
+                 }
+            </table>
+        </td>
+        <td width="250px">
+            Division 2
+        <table class="standings" cellspacing="4px" style="border: gray 1px solid">
+                <tr><th>Team</th><th>W</th><th>L</th><th>WPct</th></tr>
+                 @foreach (var item in Model.Where(m => m.Division == 2).OrderByDescending(m => m.WinPct)) {
+                    <tr><td><a href="/Stats/Team/@item.team.Id">@item.team.Title</a></td><td>@item.Wins</td><td>@item.Losses</td><td>@item.WinPct.ToString("#.000")</td></tr>
+                 }
+            </table></td>
+        <td width="250px">
+            Division 3
+            <table class="standings" cellspacing="4px" style="border: gray 1px solid">
+                <tr><th>Team</th><th>W</th><th>L</th><th>WPct</th></tr>
+                 @foreach (var item in Model.Where(m => m.Division == 3).OrderByDescending(m => m.WinPct)) {
+                    <tr><td><a href="/Stats/Team/@item.team.Id">@item.team.Title</a></td><td>@item.Wins</td><td>@item.Losses</td><td>@item.WinPct.ToString("#.000")</td></tr>
+                 }
+            </table></td>
+        </tr>    
+        <tr>
+        <td width="250px">
+            Division 4
+            <table class="standings" cellspacing="4px" style="border: gray 1px solid">
+                <tr><th>Team</th><th>W</th><th>L</th><th>WPct</th></tr>
+                 @foreach (var item in Model.Where(m => m.Division == 4).OrderByDescending(m => m.WinPct)) {
+                    <tr><td><a href="/Stats/Team/@item.team.Id">@item.team.Title</a></td><td>@item.Wins</td><td>@item.Losses</td><td>@item.WinPct.ToString("#.000")</td></tr>
+                 }
+            </table>
+        </td>
+        <td width="250px">
+            Division 5
+        <table class="standings" cellspacing="4px" style="border: gray 1px solid">
+                <tr><th>Team</th><th>W</th><th>L</th><th>WPct</th></tr>
+                 @foreach (var item in Model.Where(m => m.Division == 5).OrderByDescending(m => m.WinPct)) {
+                    <tr><td><a href="/Stats/Team/@item.team.Id">@item.team.Title</a></td><td>@item.Wins</td><td>@item.Losses</td><td>@item.WinPct.ToString("#.000")</td></tr>
+                 }
+            </table></td>
+        <td width="250px">
+            Division 6
+        <table class="standings" cellspacing="4px" style="border: gray 1px solid">
+                <tr><th>Team</th><th>W</th><th>L</th><th>WPct</th></tr>
+                 @foreach (var item in Model.Where(m => m.Division == 6).OrderByDescending(m => m.WinPct)) {
+                    <tr><td><a href="/Stats/Team/@item.team.Id">@item.team.Title</a></td><td>@item.Wins</td><td>@item.Losses</td><td>@item.WinPct.ToString("#.000")</td></tr>
+                 }
+            </table></td>
+        </tr>    
+    </table>
+

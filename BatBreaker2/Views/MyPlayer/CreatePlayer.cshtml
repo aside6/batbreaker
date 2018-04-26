@@ -1,0 +1,78 @@
+﻿@model BatBreaker2.Models.Player
+
+@{
+    ViewBag.Title = "CreatePlayer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create Player</h2>
+
+    The first thing you need to do is create a player to get started...<br /><br />
+    <div id="EditMain">
+
+    @using (Html.BeginForm()) {
+        @Html.ValidationSummary(true)
+        @ViewData["message"]
+
+        <fieldset>
+            <legend>Fields</legend>
+            
+            <div class="editor-label">
+                First Name
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.FirstName)
+                @Html.ValidationMessageFor(model => model.FirstName)
+            </div>
+            
+            <div class="editor-label">
+                Last Name
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.LastName)
+                @Html.ValidationMessageFor(model => model.LastName)
+            </div>
+            
+            <div class="editor-label">
+                Batting
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.Batting, new SelectList(ViewData["Arm"] as List<string>, "R"))
+                @Html.ValidationMessageFor(model => model.Batting)
+            </div>
+            
+            <div class="editor-label">
+                Throwing (Pitcher only)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.Throwing, new SelectList(ViewData["Arm"] as List<string>, "R"))
+                @Html.ValidationMessageFor(model => model.Throwing)
+            </div>
+            
+            <div class="editor-label">
+                Position
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.positionId, new SelectList(ViewData["Positions"] as List<BatBreaker2.Models.Position>, "Id", "Title", "2"))
+                @Html.ValidationMessageFor(model => model.positionId)
+            </div>
+            
+            <p>
+                <input type="submit" value="Create" />
+            </p>
+        </fieldset>
+
+    }
+
+    
+    </div>
+
+<script type="text/javascript">
+
+    function SpendPoints() {
+        alert("Player created successfully!");
+        window.location.href = '/MyPlayer/MyPlayerAttributes';
+    }
+
+</script>
+
