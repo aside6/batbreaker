@@ -285,6 +285,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\publish.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -304,30 +305,6 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\BatBreaker.js" />
     <Content Include="Scripts\_references.js" />
-    <None Include="Views\Game\BoxScore.cshtml" />
-    <None Include="Views\Game\InningScore.cshtml" />
-    <None Include="Views\Game\Lineup.cshtml" />
-    <None Include="Views\Game\StrikeZone.cshtml" />
-    <None Include="Views\MyPlayer\AttPoints.cshtml" />
-    <None Include="Views\MyPlayer\MyPlayerInfo.cshtml" />
-    <None Include="Views\MyPlayer\PlayerPrimary.cshtml" />
-    <None Include="Views\Stats\BatterStats.cshtml" />
-    <None Include="Views\Stats\HeadsUpStats.cshtml" />
-    <None Include="Views\Stats\PitcherStats.cshtml" />
-    <None Include="Views\Stats\PlayerAttributes.cshtml" />
-    <None Include="Views\Stats\ScheduleResults.cshtml" />
-    <None Include="Views\Stats\ShowAttribute.cshtml" />
-    <Content Include="Web.config" />
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Views\Web.config" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
@@ -339,23 +316,26 @@
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\SendCode.cshtml" />
     <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Game\SimulateGame.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\ViewPage1.cshtml" />
     <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
     <Content Include="Views\Manage\ChangePassword.cshtml" />
     <Content Include="Views\Manage\Index.cshtml" />
     <Content Include="Views\Manage\ManageLogins.cshtml" />
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
-    <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Shared\_LayoutPage1.cshtml" />
-    <Content Include="Views\Shared\_LogOnPartial.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\ViewPage1.cshtml" />
-    <Content Include="Views\Game\SimulateGame.cshtml" />
     <Content Include="Views\MyPlayer\CreatePlayer.cshtml" />
     <Content Include="Views\MyPlayer\EditPlayerAttributes.cshtml" />
     <Content Include="Views\MyPlayer\MyPlayerAttributes.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_LayoutPage1.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_LogOnPartial.cshtml" />
     <Content Include="Views\Stats\AllBattingStats.cshtml" />
     <Content Include="Views\Stats\Game.cshtml" />
     <Content Include="Views\Stats\GetAllPlayers.cshtml" />
@@ -363,6 +343,27 @@
     <Content Include="Views\Stats\Standings.cshtml" />
     <Content Include="Views\Stats\Team.cshtml" />
     <Content Include="Views\Stats\TeamGames.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Game\BoxScore.cshtml" />
+    <Content Include="Views\Game\InningScore.cshtml" />
+    <Content Include="Views\Game\Lineup.cshtml" />
+    <Content Include="Views\Game\StrikeZone.cshtml" />
+    <Content Include="Views\MyPlayer\AttPoints.cshtml" />
+    <Content Include="Views\MyPlayer\MyPlayerInfo.cshtml" />
+    <Content Include="Views\MyPlayer\PlayerPrimary.cshtml" />
+    <Content Include="Views\Stats\BatterStats.cshtml" />
+    <Content Include="Views\Stats\HeadsUpStats.cshtml" />
+    <Content Include="Views\Stats\PitcherStats.cshtml" />
+    <Content Include="Views\Stats\PlayerAttributes.cshtml" />
+    <Content Include="Views\Stats\ScheduleResults.cshtml" />
+    <Content Include="Views\Stats\ShowAttribute.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
